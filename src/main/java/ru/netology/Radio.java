@@ -1,37 +1,68 @@
 package ru.netology;
 
 public class Radio {
-    public int currentRadioStation;
+    private int numberOfRadioStations = 10;
+    private int firstRadioStation = 0;
+    private int lastRadioStation = 9;
+    private int currentRadioStation;
+
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume;
+
+    public Radio(int numberOfRadioStations) {
+        this.numberOfRadioStations = numberOfRadioStations;
+    }
+
+    public Radio() {
+        this.numberOfRadioStations = getNumberOfRadioStations();
+    }
+
+    public int getNumberOfRadioStations() {
+        return numberOfRadioStations;
+    }
+
+    public int getFirstRadioStation() {
+        return firstRadioStation;
+    }
+
+    public int getLastRadioStation() {
+        return lastRadioStation;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
-            newCurrentRadioStation = 9;
+        if (newCurrentRadioStation > lastRadioStation) {
+            newCurrentRadioStation = firstRadioStation;
         }
-        if (newCurrentRadioStation > 9) {
-            return;
+        if (newCurrentRadioStation < firstRadioStation) {
+            newCurrentRadioStation = lastRadioStation;
         }
         currentRadioStation = newCurrentRadioStation;
     }
 
-    int currentVolume;
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 10) {
-            newCurrentVolume = 10;
+        if (newCurrentVolume > maxVolume) {
+            newCurrentVolume = maxVolume;
         }
-        if (newCurrentVolume < 0) {
-            return;
+        if (newCurrentVolume < minVolume) {
+            newCurrentVolume = minVolume;
         }
         currentVolume = newCurrentVolume;
     }
-
-
 }
