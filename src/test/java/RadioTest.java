@@ -7,30 +7,6 @@ public class RadioTest {
     public void shouldSetRadioStation() {
         Radio radio = new Radio();
 
-        radio.setCurrentRadioStation(9);
-
-        int expected = 9;
-        int actual = radio.getCurrentRadioStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldSetRadioStationBelowMin() {
-        Radio radio = new Radio();
-
-        radio.setCurrentRadioStation(-1);
-
-        int expected = 9;
-        int actual = radio.getCurrentRadioStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldSetRadioStationAboveMax() {
-        Radio radio = new Radio();
-
         radio.setCurrentRadioStation(10);
 
         int expected = 0;
@@ -40,10 +16,108 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSwitchNextMinStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(0);
+
+        radio.next();
+
+        int expected = 1;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchNextMaxStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(9);
+
+        radio.next();
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchNextRadioStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(8);
+
+        radio.next();
+
+        int expected = 9;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchPrevMinStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(0);
+
+        radio.prev();
+
+        int expected = 9;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchPrevStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(1);
+
+        radio.prev();
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchPrevMaxStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(9);
+
+        radio.prev();
+
+        int expected = 8;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetVolume() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(1);
+        radio.setCurrentVolume(7);
+
+        int expected = 7;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchMinVolume() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(0);
+
+        radio.increaseVolume();
 
         int expected = 1;
         int actual = radio.getCurrentVolume();
@@ -52,22 +126,40 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetVolumeBelowMin() {
+    public void shouldSwitchVolume() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(-1);
+        radio.setCurrentVolume(1);
 
-        int expected = 0;
+        radio.increaseVolume();
+
+        int expected = 2;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldSetVolumeAboveMax() {
+    public void shouldSwitchMaxVolume() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(10);
+
+        radio.increaseVolume();
+
+        int expected = 10;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchHighVolume() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(9);
+
+        radio.increaseVolume();
 
         int expected = 10;
         int actual = radio.getCurrentVolume();
