@@ -49,7 +49,6 @@
                         </goals>
                     </execution>
                     <execution>
-<!--&lt;!&ndash;                       -->
                         <configuration>
                             <rules>
                                 <rule>
