@@ -49,10 +49,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
+<!--&lt;!&ndash;                       -->
                         <configuration>
                             <rules>
                                 <rule>
