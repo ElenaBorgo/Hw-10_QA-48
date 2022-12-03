@@ -115,8 +115,6 @@ public class RadioTest {
     public void shouldSwitchMinVolume() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(0);
-
         radio.increaseVolume();
 
         int expected = 1;
@@ -163,7 +161,6 @@ public class RadioTest {
 
         int expected = 10;
         int actual = radio.getCurrentVolume();
-
         Assertions.assertEquals(expected, actual);
     }
 }
