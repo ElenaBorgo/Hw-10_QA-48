@@ -1,5 +1,11 @@
 package ru.netology;
 
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Radio {
     private int numberOfRadioStations = 10;
     private int firstRadioStation = 0;
