@@ -38,4 +38,28 @@ public class Radio {
         }
         currentVolume = newCurrentVolume;
     }
+
+    public void next() {
+        if (currentRadioStation < 9) {
+            currentRadioStation++;
+        } else {
+            currentRadioStation = 0;
+        }
+    }
+
+    public void prev() {
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
+        } else {
+            currentRadioStation = 9;
+        }
+    }
+
+    public void increaseVolume() {
+        if (currentVolume < 10) {
+            currentVolume++;
+        } else {
+            currentVolume = 10;
+        }
+    }
 }
